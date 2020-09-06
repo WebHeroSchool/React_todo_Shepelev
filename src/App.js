@@ -1,18 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import * as nums from './number';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      <p>{nums.count * nums.length}</p>
-      </header>
+const element = (<div>Hello from component!</div>);
 
-    </div>
-  );
-}
-
-export default App;
+export {element}
