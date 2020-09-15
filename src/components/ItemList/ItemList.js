@@ -1,10 +1,11 @@
 import React from 'react';
+import Item from '../Item/Item';
 
-const ItemList = () => (<div>
+const ItemList = ({ todoItem }) => (<div>
   <ul>
-    <li>task 1</li>
-    <li>task 2</li>
-    <li>task 3</li>
+    <li><Item todoItem = {todoItem}/></li>
+    <li><Item todoItem = {'Выложить его на гитхаб'}/></li>
+    <li><Item todoItem = {'Отпраздновать!'}/></li>
   </ul>
 </div>)
 
