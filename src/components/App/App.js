@@ -4,7 +4,7 @@ import ItemList from '../ItemList/ItemList';
 import Footer from '../Footer/Footer';
 
 const taskCount = 3;
-const importantTask = 'Написать приложение';
+const importantTask = ['Создать приложение','Исправить баги','Отпраздновать!'];
 
 const App = () => (<div>
   <h1> todos </h1>
