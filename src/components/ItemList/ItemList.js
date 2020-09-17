@@ -6,7 +6,7 @@ const ItemList = ({ todoItem }) => {
     <>
       <ul>
         {todoItem.map((item) => {
-          return <li> {item} </li>;
+          return <li> <Item todoItem={item}/> </li>
         })}
       </ul>
     </>
