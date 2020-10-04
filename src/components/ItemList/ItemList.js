@@ -5,9 +5,7 @@ const ItemList = ({ todoItem }) => {
   return (
     <>
       <ul>
-        {todoItem.map((item) => {
-          return <li> <Item todoItem={item}/> </li>
-        })}
+        <Item { todoItem }/>
       </ul>
     </>
   )
