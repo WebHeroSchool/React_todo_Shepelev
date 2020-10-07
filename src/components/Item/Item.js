@@ -1,12 +1,7 @@
 import React from 'react';
 
 const Item = ({ todoItem }) => {
-  return (
-  <>
-  {todoItem.map((item) => {
-          return <li> { item } </li>
-        })}
-  </>
-  )}
+  return (<li>  { todoItem }  </li>)
+  }
 
 export default Item

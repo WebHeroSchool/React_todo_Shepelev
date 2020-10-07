@@ -4,8 +4,10 @@ import Item from '../Item/Item';
 const ItemList = ({ todoItem }) => {
   return (
     <>
-      <ul>
-        <Item { todoItem }/>
+      <ul> 
+        {todoItem.map(item => {
+          return <Item todoItem = {item}/>
+        })}
       </ul>
     </>
   )
