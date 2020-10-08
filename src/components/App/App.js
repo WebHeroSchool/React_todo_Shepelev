@@ -4,7 +4,20 @@ import ItemList from '../ItemList/ItemList';
 import Footer from '../Footer/Footer';
 
 const taskCount = 3;
-const importantTask = ['Создать приложение','Исправить баги','Отпраздновать!'];
+const importantTask = [
+  {
+    value: 'Создать приложение',
+    id: 1
+  },
+  {
+    value: 'Исправить баги',
+    id: 2
+  },
+  {
+    value: 'Отпраздновать!',
+    id: 3
+  }
+]
 
 const App = () => (<div>
   <h1> todos </h1>
