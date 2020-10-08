@@ -1,11 +1,17 @@
 import React from 'react';
+import Item from '../Item/Item';
 
-const ItemList = () => (<div>
-  <ul>
-    <li>task 1</li>
-    <li>task 2</li>
-    <li>task 3</li>
-  </ul>
-</div>)
+const ItemList = ({ todoItem }) => {
+  return (
+    <>
+      <ul> 
+        {todoItem.map(item => {
+          return <Item todoItem = {item}/>
+        })}
+      </ul>
+    </>
+  )
+}
+
 
 export default ItemList
