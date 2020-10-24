@@ -2,7 +2,7 @@ import React from 'react';
 import InputItem from '../InputItem/InputItem';
 import ItemList from '../ItemList/ItemList';
 import Footer from '../Footer/Footer';
-import './App.css';
+import styles from './App.module.css';
 
 const taskCount = 3;
 const importantTask = [
@@ -20,8 +20,8 @@ const importantTask = [
   }
 ]
 
-const App = () => (<div className='container'>
-  <h1> todos </h1>
+const App = () => (<div className = { styles.container }>
+  <h1 className = { styles.title } > todos </h1>
   <InputItem />
   <ItemList todoItem = {importantTask}/>
   <Footer count = {taskCount} />
