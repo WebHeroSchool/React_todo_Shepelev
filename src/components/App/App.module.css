@@ -3,3 +3,8 @@
   width: 500px;
   font-family: 'Roboto', sans-serif;
 }
+.title{
+  font-weight: bold;
+  font-size: 28px;
+  color: bisque;
+}
