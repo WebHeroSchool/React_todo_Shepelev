@@ -8,15 +8,18 @@ const taskCount = 3;
 const importantTask = [
   {
     value: 'Создать приложение',
-    id: 1
+    id: 1,
+    isDone: true
   },
   {
     value: 'Исправить баги',
-    id: 2
+    id: 2,
+    isDone: false
   },
   {
     value: 'Отпраздновать!',
-    id: 3
+    id: 3,
+    isDone: false
   }
 ]
 
