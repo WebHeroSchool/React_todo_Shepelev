@@ -24,7 +24,7 @@ const importantTask = [
 ]
 
 const App = () => (<div className = { styles.container }>
-  <h1 className = { styles.title } > todos </h1>
+  <h1 className = { styles.title } > todo's App</h1>
   <InputItem />
   <ItemList todoItem = {importantTask}/>
   <Footer count = {taskCount} />

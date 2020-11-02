@@ -16,7 +16,7 @@ export default function InputItem() {
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="outlined-basic" label="Внесите задачу" variant="outlined" />
+      <TextField id="outlined-basic" label="Что нужно сделать?" variant="outlined" />
     </form>
   );
 }
