@@ -3,6 +3,7 @@ import InputItem from '../InputItem/InputItem';
 import ItemList from '../ItemList/ItemList';
 import Footer from '../Footer/Footer';
 import styles from './App.module.css';
+import CheckboxList from '../Recept/Recept';
 
 const taskCount = 3;
 const importantTask = [
@@ -28,6 +29,7 @@ const App = () => (<div className = { styles.container }>
   <InputItem />
   <ItemList todoItem = {importantTask}/>
   <Footer count = {taskCount} />
+  <CheckboxList/>
 </div>)
 
 export default App
