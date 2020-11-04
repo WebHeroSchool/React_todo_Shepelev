@@ -1,5 +1,26 @@
 .item {
-  color: limegreen;
+  color:#90ee90;
+  list-style-type: none;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 18px;
+}
+.item:hover > button{
+  opacity: 1;
+  transition: opacity ease 0.9s;
+  background-color: #90ee90;
+}
+.item button{
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #90ee90;
+  color:  #808080;
+  opacity: 0;
+  border-radius: 4px;
 }
 
 .done {
