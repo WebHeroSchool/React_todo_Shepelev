@@ -25,6 +25,7 @@ const importantTask = [
 
 const App = () => (<div className = { styles.container }>
   <h1 className = { styles.title } > todo's list </h1>
+
   <InputItem />
   <hr className= { styles.line }/>
   <ItemList todoItem = {importantTask}/>

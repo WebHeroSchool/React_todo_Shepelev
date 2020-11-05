@@ -5,9 +5,11 @@ import styles from './InputItem.module.css';
 export default function InputItem() {
 
   return (
-    <form>
+
+     <form>
       <input className = { styles.text } type = "text" placeholder= "Запишите дело" />
       <button className = { styles.btn } >Add</button>
+
     </form>
   );
 }
