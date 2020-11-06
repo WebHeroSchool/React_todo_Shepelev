@@ -4,12 +4,17 @@ import styles from './Item.module.css';
 
 const Item = ({ todoItem, isDone }) => {
   
-  return (<li className = {
+  return (<div><li className = {
     classnames({
       [styles.item]: true,
       [styles.done]: isDone
     })
-  }>  { todoItem }  </li>)
+  }> <div>
+      <input type="checkbox"/> { todoItem } 
+      </div> 
+      <button>X</button> 
+    </li>
+  </div>)
   }
 
 export default Item
