@@ -5,9 +5,11 @@ import Footer from '../Footer/Footer';
 import styles from './App.module.css';
 
 class App extends React.Component {
-  render() {
-    const taskCount = 3;
-    const importantTask = [
+constructor(props) {
+  super(props);
+  this.state = {
+    taskCount: 3,
+    importantTask: [
       {
         value: 'Создать приложение',
         id: 1,
@@ -23,16 +25,20 @@ class App extends React.Component {
         id: 3,
         isDone: false
       }
-    ];
+    ] 
+  }
+}
+
+  render() {
 
     return(
       <div className = { styles.container }>
         <h1 className = { styles.title } > todo's list </h1>
         <InputItem />
         <hr className= { styles.line }/>
-        <ItemList todoItem = {importantTask}/>
+        <ItemList todoItem = {this.state.importantTask}/>
         <hr className= { styles.line }/>
-        <Footer count = {taskCount} />
+        <Footer count = {this.state.taskCount} />
       </div>);
   };
 
