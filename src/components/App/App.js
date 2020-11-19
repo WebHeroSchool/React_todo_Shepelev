@@ -7,6 +7,7 @@ import styles from './App.module.css';
 class App extends React.Component {
 constructor(props) {
   super(props);
+  this.onClickDone = this.onClickDone.bind(this);
   this.state = {
     taskCount: 3,
     importantTask: [
@@ -29,6 +30,10 @@ constructor(props) {
   }
 }
 
+  onClickDone(isDone) {
+    console.log(isDone);
+  }
+
   render() {
 
     return(
@@ -36,7 +41,7 @@ constructor(props) {
         <h1 className = { styles.title } > todo's list </h1>
         <InputItem />
         <hr className= { styles.line }/>
-        <ItemList todoItem = {this.state.importantTask}/>
+        <ItemList todoItem = {this.state.importantTask} onClickDone = {this.onClickDone} />
         <hr className= { styles.line }/>
         <Footer count = {this.state.taskCount} />
       </div>);
