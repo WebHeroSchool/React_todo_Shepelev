@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import styles from './Item.module.css';
 
-const Item = ({ todoItem, isDone }) => {
+const Item = ({ todoItem, isDone, onClickDone }) => {
   
   return (<div><li className = {
     classnames({
@@ -10,7 +10,7 @@ const Item = ({ todoItem, isDone }) => {
       [styles.done]: isDone
     })
   }> <div>
-      <input type="checkbox"/> { todoItem } 
+      <input type="checkbox" onClick = {()=> onClickDone(isDone)} /> { todoItem } 
       </div> 
       <button>X</button> 
     </li>
