@@ -14,7 +14,7 @@ class App extends React.Component {
         {
           value: "Создать приложение",
           id: 1,
-          isDone: true,
+          isDone: false,
         },
         {
           value: "Исправить баги",
