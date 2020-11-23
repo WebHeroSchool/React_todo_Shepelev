@@ -26,6 +26,11 @@ class App extends React.Component {
           id: 3,
           isDone: false,
         },
+        {
+          value: "Опубликовать",
+          id: 4,
+          isDone: false,
+        },
       ],
     };
   }
