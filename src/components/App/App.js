@@ -8,6 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.onClickDone = this.onClickDone.bind(this);
+    this.onClickDelete = this.onClickDelete.bind(this);
     this.state = {
       taskCount: 3,
       importantTask: [
@@ -46,6 +47,12 @@ class App extends React.Component {
     this.setState({ importantTask: newItemList });
   };
 
+  onClickDelete = (id) => {
+    let newItemList = [...this.state.importantTask];
+    newItemList.splice(id, 1);
+    this.setState({ importantTask: newItemList });
+  };
+
   render() {
     return (
       <div className={styles.container}>
@@ -55,6 +62,7 @@ class App extends React.Component {
         <ItemList
           todoItem={this.state.importantTask}
           onClickDone={this.onClickDone}
+          onClickDelete={this.onClickDelete}
         />
         <hr className={styles.line} />
         <Footer count={this.state.taskCount} />
