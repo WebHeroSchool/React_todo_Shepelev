@@ -48,9 +48,12 @@ class App extends React.Component {
   };
 
   onClickDelete = (id) => {
-    let newItemList = [...this.state.importantTask];
-    newItemList.splice(id, 1);
-    this.setState({ importantTask: newItemList });
+    const index = this.state.importantTask.map((item) => item.id).indexOf(id);
+    this.setState((state) => {
+      let { importantTask } = state;
+      delete importantTask[index];
+      return importantTask;
+    });
   };
 
   render() {
