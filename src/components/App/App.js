@@ -47,14 +47,12 @@ class App extends React.Component {
     this.setState({ importantTask: newItemList });
   };
 
-  onClickDelete = (id) => {
-    const index = this.state.importantTask.map((item) => item.id).indexOf(id);
-    this.setState((state) => {
-      let { importantTask } = state;
-      delete importantTask[index];
-      return importantTask;
-    });
-  };
+  onClickDelete = (id) =>
+    this.setState((state) => ({
+      importantTask: state.importantTask.filter(
+        (importantTask) => importantTask.id !== id
+      ),
+    }));
 
   render() {
     return (
