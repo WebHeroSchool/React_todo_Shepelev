@@ -53,14 +53,15 @@ class App extends React.Component {
       importantTask: state.importantTask.filter(
         (importantTask) => importantTask.id !== id
       ),
+      taskCount: state.taskCount - 1,
     }));
 
-  onClickAdd = () =>
+  onClickAdd = (value) =>
     this.setState((state) => ({
       importantTask: [
         ...state.importantTask,
         {
-          value: "Click!",
+          value: value,
           id: state.taskCount + 1,
           isDone: false,
         },
