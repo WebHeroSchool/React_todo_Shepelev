@@ -7,10 +7,13 @@ export default class InputItem extends React.Component {
   };
   onButtonClick = () => {
     this.setState({ inputValue: "" });
-    this.props.onClickAdd(this.state.inputValue);
+    if (!this.state.inputValue) {
+      alert("Вы не указали задачу!");
+    } else {
+      this.props.onClickAdd(this.state.inputValue);
+    }
   };
   render() {
-    const { onClickAdd } = this.props;
     return (
       <form>
         <input
