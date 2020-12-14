@@ -8,8 +8,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.onClickDone = this.onClickDone.bind(this);
+    this.onClickDelete = this.onClickDelete.bind(this);
+    this.onClickAdd = this.onClickAdd.bind(this);
     this.state = {
-      taskCount: 3,
+      taskCount: 4,
       importantTask: [
         {
           value: "Создать приложение",
@@ -46,15 +48,37 @@ class App extends React.Component {
     this.setState({ importantTask: newItemList });
   };
 
+  onClickDelete = (id) =>
+    this.setState((state) => ({
+      importantTask: state.importantTask.filter(
+        (importantTask) => importantTask.id !== id
+      ),
+      taskCount: state.taskCount - 1,
+    }));
+
+  onClickAdd = (value) =>
+    this.setState((state) => ({
+      importantTask: [
+        ...state.importantTask,
+        {
+          value: value,
+          id: state.taskCount + 1,
+          isDone: false,
+        },
+      ],
+      taskCount: state.taskCount + 1,
+    }));
+
   render() {
     return (
       <div className={styles.container}>
         <h1 className={styles.title}> todo's list </h1>
-        <InputItem />
+        <InputItem onClickAdd={this.onClickAdd} />
         <hr className={styles.line} />
         <ItemList
           todoItem={this.state.importantTask}
           onClickDone={this.onClickDone}
+          onClickDelete={this.onClickDelete}
         />
         <hr className={styles.line} />
         <Footer count={this.state.taskCount} />

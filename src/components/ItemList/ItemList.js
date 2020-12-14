@@ -1,7 +1,7 @@
 import React from "react";
 import Item from "../Item/Item";
 
-const ItemList = ({ todoItem, onClickDone }) => {
+const ItemList = ({ todoItem, onClickDone, onClickDelete }) => {
   return (
     <ul>
       {todoItem.map((item) => {
@@ -12,6 +12,7 @@ const ItemList = ({ todoItem, onClickDone }) => {
             id={item.id}
             isDone={item.isDone}
             onClickDone={onClickDone}
+            onClickDelete={onClickDelete}
           />
         );
       })}

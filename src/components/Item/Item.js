@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import styles from "./Item.module.css";
 
-const Item = ({ todoItem, isDone, onClickDone, id }) => {
+const Item = ({ todoItem, isDone, onClickDone, onClickDelete, id }) => {
   return (
     <div>
       <li
@@ -15,7 +15,7 @@ const Item = ({ todoItem, isDone, onClickDone, id }) => {
         <div>
           <input type="checkbox" onClick={() => onClickDone(id)} /> {todoItem}
         </div>
-        <button>X</button>
+        <button onClick={() => onClickDelete(id)}>X</button>
       </li>
     </div>
   );
