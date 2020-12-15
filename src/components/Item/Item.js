@@ -3,6 +3,10 @@ import classnames from "classnames";
 import styles from "./Item.module.css";
 
 const Item = ({ todoItem, isDone, onClickDone, onClickDelete, id }) => {
+  Item.defaultProps = {
+    isDone: false,
+  };
+
   return (
     <div>
       <li
