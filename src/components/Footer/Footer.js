@@ -1,10 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.css";
 
-Footer.defaultProps = {
-  count: 0,
-};
-
 export default function Footer({ count }) {
   return (
     <div className={styles.container}>
@@ -22,3 +18,7 @@ export default function Footer({ count }) {
     </div>
   );
 }
+
+Footer.defaultProps = {
+  count: 0,
+};
