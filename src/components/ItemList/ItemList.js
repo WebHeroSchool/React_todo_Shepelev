@@ -1,5 +1,6 @@
 import React from "react";
 import Item from "../Item/Item";
+import PropTypes from "prop-types";
 
 const ItemList = ({ todoItem, onClickDone, onClickDelete }) => {
   return (
@@ -21,3 +22,9 @@ const ItemList = ({ todoItem, onClickDone, onClickDelete }) => {
 };
 
 export default ItemList;
+
+ItemList.PropTypes = {
+  todoItem: PropTypes.array.isRequired,
+  onClickDone: PropTypes.func,
+  onClickDelete: PropTypes.func,
+};

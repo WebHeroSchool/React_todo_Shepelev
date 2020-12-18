@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.css";
+import PropTypes from "prop-types";
 
 export default function Footer({ count }) {
   return (
@@ -21,4 +22,8 @@ export default function Footer({ count }) {
 
 Footer.defaultProps = {
   count: 0,
+};
+
+Footer.PropTypes = {
+  count: PropTypes.number.isRequired,
 };

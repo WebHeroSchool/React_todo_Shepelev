@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./InputItem.module.css";
+import PropTypes from "prop-types";
 
 export default class InputItem extends React.Component {
   state = {
@@ -36,3 +37,7 @@ export default class InputItem extends React.Component {
     );
   }
 }
+
+InputItem.PropTypes = {
+  onClickAdd: PropTypes.func,
+};
