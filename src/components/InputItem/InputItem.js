@@ -38,6 +38,6 @@ export default class InputItem extends React.Component {
   }
 }
 
-InputItem.PropTypes = {
+InputItem.propTypes = {
   onClickAdd: PropTypes.func,
 };

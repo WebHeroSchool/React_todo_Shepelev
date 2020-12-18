@@ -24,6 +24,6 @@ Footer.defaultProps = {
   count: 0,
 };
 
-Footer.PropTypes = {
+Footer.propTypes = {
   count: PropTypes.number.isRequired,
 };

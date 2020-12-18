@@ -23,7 +23,7 @@ const ItemList = ({ todoItem, onClickDone, onClickDelete }) => {
 
 export default ItemList;
 
-ItemList.PropTypes = {
+ItemList.propTypes = {
   todoItem: PropTypes.array.isRequired,
   onClickDone: PropTypes.func,
   onClickDelete: PropTypes.func,
