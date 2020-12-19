@@ -3,24 +3,36 @@ import classnames from "classnames";
 import styles from "./Item.module.css";
 import PropTypes from "prop-types";
 
-const Item = ({ todoItem, isDone, onClickDone, onClickDelete, id }) => {
-  return (
-    <div>
-      <li
-        className={classnames({
-          [styles.item]: true,
-          [styles.done]: isDone,
-        })}
-      >
-        {" "}
-        <div>
-          <input type="checkbox" onClick={() => onClickDone(id)} /> {todoItem}
-        </div>
-        <button onClick={() => onClickDelete(id)}>X</button>
-      </li>
-    </div>
-  );
-};
+class Item extends React.Component {
+  componentDidMount() {
+    console.log("componentDidMount");
+  }
+  componentDidUpdate() {
+    console.log("componentDidUpdate");
+  }
+  componentWillUnmount() {
+    console.log("componentWillUnmount");
+  }
+  render() {
+    const { todoItem, isDone, onClickDone, onClickDelete, id } = this.props;
+    return (
+      <div>
+        <li
+          className={classnames({
+            [styles.item]: true,
+            [styles.done]: isDone,
+          })}
+        >
+          {" "}
+          <div>
+            <input type="checkbox" onClick={() => onClickDone(id)} /> {todoItem}
+          </div>
+          <button onClick={() => onClickDelete(id)}>X</button>
+        </li>
+      </div>
+    );
+  }
+}
 
 export default Item;
 
@@ -29,7 +41,7 @@ Item.defaultProps = {
 };
 
 Item.propTypes = {
-  todoItem: PropTypes.array.isRequired,
+  todoItem: PropTypes.string.isRequired,
   isDone: PropTypes.bool,
   onClickDone: PropTypes.func,
   onClickDelete: PropTypes.func,
