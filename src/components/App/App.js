@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InputItem from "../InputItem/InputItem";
 import ItemList from "../ItemList/ItemList";
 import Footer from "../Footer/Footer";
@@ -35,6 +35,14 @@ const App = () => {
     initialState.importantTask
   );
   const [taskCount, setTaskCount] = useState(initialState.taskCount);
+
+  useEffect(() => {
+    console.log("update");
+  });
+
+  useEffect(() => {
+    console.log("mount");
+  }, []);
 
   const onClickDone = (isDone, id) => {
     const newItemList = importantTask.map((item) => {
