@@ -31,40 +31,40 @@ const App = () => {
     ],
   };
 
-  const [todoItem, setTodoItem] = useState(initialState.importantTask);
-  const [count, setCount] = useState(initialState.taskCount);
+  const [importantTask, setImportantTask] = useState(
+    initialState.importantTask
+  );
+  const [taskCount, setTaskCount] = useState(initialState.taskCount);
 
-  const onClickDone = (id) => {
-    const newItemList = todoItem.map((item) => {
+  const onClickDone = (isDone, id) => {
+    const newItemList = importantTask.map((item) => {
       const newItem = { ...item };
       if (item.id === id) {
         newItem.isDone = !item.isDone;
       }
       return newItem;
     });
-    setTodoItem({ importantTask: newItemList });
+    setImportantTask(newItemList);
   };
 
-  const onClickDelete = (id) =>
-    setTodoItem((state) => ({
-      importantTask: state.importantTask.filter(
-        (importantTask) => importantTask.id !== id
-      ),
-      count: setCount((count) => count - 1),
-    }));
+  const onClickDelete = (id) => {
+    const NewItemList = importantTask.filter((item) => item.id !== id);
+    setImportantTask(NewItemList);
+    setTaskCount((taskCount) => taskCount - 1);
+  };
 
-  const onClickAdd = (value) =>
-    setTodoItem((state) => ({
-      importantTask: [
-        ...state.importantTask,
-        {
-          value: value,
-          id: setCount((count) => count + 1),
-          isDone: false,
-        },
-      ],
-      count: setCount((count) => count + 1),
-    }));
+  const onClickAdd = (value) => {
+    const NewItemList = [
+      ...importantTask,
+      {
+        value: value,
+        id: taskCount + 1,
+        isDone: false,
+      },
+    ];
+    setImportantTask(NewItemList);
+    setTaskCount((taskCount) => taskCount + 1);
+  };
 
   return (
     <div className={styles.container}>
@@ -72,12 +72,12 @@ const App = () => {
       <InputItem onClickAdd={onClickAdd} />
       <hr className={styles.line} />
       <ItemList
-        todoItem={todoItem}
+        todoItem={importantTask}
         onClickDone={onClickDone}
         onClickDelete={onClickDelete}
       />
       <hr className={styles.line} />
-      <Footer count={count} />
+      <Footer count={taskCount} />
     </div>
   );
 };
