@@ -44,7 +44,7 @@ const App = () => {
     console.log("mount");
   }, []);
 
-  const onClickDone = (isDone, id) => {
+  const onClickDone = (id) => {
     const newItemList = importantTask.map((item) => {
       const newItem = { ...item };
       if (item.id === id) {
