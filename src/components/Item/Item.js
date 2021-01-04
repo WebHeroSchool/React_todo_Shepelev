@@ -4,15 +4,6 @@ import styles from "./Item.module.css";
 import PropTypes from "prop-types";
 
 class Item extends React.Component {
-  componentDidMount() {
-    console.log("componentDidMount");
-  }
-  componentDidUpdate() {
-    console.log("componentDidUpdate");
-  }
-  componentWillUnmount() {
-    console.log("componentWillUnmount");
-  }
   render() {
     const { todoItem, isDone, onClickDone, onClickDelete, id } = this.props;
     return (

@@ -1,90 +1,92 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import InputItem from "../InputItem/InputItem";
 import ItemList from "../ItemList/ItemList";
 import Footer from "../Footer/Footer";
 import styles from "./App.module.css";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onClickDone = this.onClickDone.bind(this);
-    this.onClickDelete = this.onClickDelete.bind(this);
-    this.onClickAdd = this.onClickAdd.bind(this);
-    this.state = {
-      taskCount: 4,
-      importantTask: [
-        {
-          value: "Создать приложение",
-          id: 1,
-          isDone: false,
-        },
-        {
-          value: "Исправить баги",
-          id: 2,
-          isDone: false,
-        },
-        {
-          value: "Отпраздновать!",
-          id: 3,
-          isDone: false,
-        },
-        {
-          value: "Опубликовать",
-          id: 4,
-          isDone: false,
-        },
-      ],
-    };
-  }
+const App = () => {
+  const initialState = {
+    taskCount: 4,
+    importantTask: [
+      {
+        value: "Создать приложение",
+        id: 1,
+        isDone: false,
+      },
+      {
+        value: "Исправить баги",
+        id: 2,
+        isDone: false,
+      },
+      {
+        value: "Отпраздновать!",
+        id: 3,
+        isDone: false,
+      },
+      {
+        value: "Опубликовать",
+        id: 4,
+        isDone: false,
+      },
+    ],
+  };
 
-  onClickDone = (id) => {
-    const newItemList = this.state.importantTask.map((item) => {
+  const [importantTask, setImportantTask] = useState(
+    initialState.importantTask
+  );
+  const [taskCount, setTaskCount] = useState(initialState.taskCount);
+
+  useEffect(() => {
+    console.log("update");
+  });
+
+  useEffect(() => {
+    console.log("mount");
+  }, []);
+
+  const onClickDone = (id) => {
+    const newItemList = importantTask.map((item) => {
       const newItem = { ...item };
       if (item.id === id) {
         newItem.isDone = !item.isDone;
       }
       return newItem;
     });
-    this.setState({ importantTask: newItemList });
+    setImportantTask(newItemList);
   };
 
-  onClickDelete = (id) =>
-    this.setState((state) => ({
-      importantTask: state.importantTask.filter(
-        (importantTask) => importantTask.id !== id
-      ),
-      taskCount: state.taskCount - 1,
-    }));
+  const onClickDelete = (id) => {
+    const NewItemList = importantTask.filter((item) => item.id !== id);
+    setImportantTask(NewItemList);
+    setTaskCount((taskCount) => taskCount - 1);
+  };
 
-  onClickAdd = (value) =>
-    this.setState((state) => ({
-      importantTask: [
-        ...state.importantTask,
-        {
-          value: value,
-          id: state.taskCount + 1,
-          isDone: false,
-        },
-      ],
-      taskCount: state.taskCount + 1,
-    }));
+  const onClickAdd = (value) => {
+    const NewItemList = [
+      ...importantTask,
+      {
+        value: value,
+        id: taskCount + 1,
+        isDone: false,
+      },
+    ];
+    setImportantTask(NewItemList);
+    setTaskCount((taskCount) => taskCount + 1);
+  };
 
-  render() {
-    return (
-      <div className={styles.container}>
-        <h1 className={styles.title}> todo's list </h1>
-        <InputItem onClickAdd={this.onClickAdd} />
-        <hr className={styles.line} />
-        <ItemList
-          todoItem={this.state.importantTask}
-          onClickDone={this.onClickDone}
-          onClickDelete={this.onClickDelete}
-        />
-        <hr className={styles.line} />
-        <Footer count={this.state.taskCount} />
-      </div>
-    );
-  }
-}
-
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.title}> todo's list </h1>
+      <InputItem onClickAdd={onClickAdd} />
+      <hr className={styles.line} />
+      <ItemList
+        todoItem={importantTask}
+        onClickDone={onClickDone}
+        onClickDelete={onClickDelete}
+      />
+      <hr className={styles.line} />
+      <Footer count={taskCount} />
+    </div>
+  );
+};
 export default App;
