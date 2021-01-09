@@ -1,92 +1,31 @@
-import React, { useState, useEffect } from "react";
-import InputItem from "../InputItem/InputItem";
-import ItemList from "../ItemList/ItemList";
-import Footer from "../Footer/Footer";
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styles from "./App.module.css";
+import About from "../About/About";
+import Contacts from "../Contacts/Contacts";
+import Todo from "../Todo/Todo";
 
-const App = () => {
-  const initialState = {
-    taskCount: 4,
-    importantTask: [
-      {
-        value: "Создать приложение",
-        id: 1,
-        isDone: false,
-      },
-      {
-        value: "Исправить баги",
-        id: 2,
-        isDone: false,
-      },
-      {
-        value: "Отпраздновать!",
-        id: 3,
-        isDone: false,
-      },
-      {
-        value: "Опубликовать",
-        id: 4,
-        isDone: false,
-      },
-    ],
-  };
+const App = () => (
+  <Router>
+    <div className={styles.menu__container}>
+      <div className={styles.menu__link}>
+        <Link className={styles.menu__item} to="/">
+          Обо мне
+        </Link>
+        <Link className={styles.menu__item} to="/todo">
+          Список дел
+        </Link>
+        <Link className={styles.menu__item} to="/contacts">
+          Контакты
+        </Link>
 
-  const [importantTask, setImportantTask] = useState(
-    initialState.importantTask
-  );
-  const [taskCount, setTaskCount] = useState(initialState.taskCount);
-
-  useEffect(() => {
-    console.log("update");
-  });
-
-  useEffect(() => {
-    console.log("mount");
-  }, []);
-
-  const onClickDone = (id) => {
-    const newItemList = importantTask.map((item) => {
-      const newItem = { ...item };
-      if (item.id === id) {
-        newItem.isDone = !item.isDone;
-      }
-      return newItem;
-    });
-    setImportantTask(newItemList);
-  };
-
-  const onClickDelete = (id) => {
-    const NewItemList = importantTask.filter((item) => item.id !== id);
-    setImportantTask(NewItemList);
-    setTaskCount((taskCount) => taskCount - 1);
-  };
-
-  const onClickAdd = (value) => {
-    const NewItemList = [
-      ...importantTask,
-      {
-        value: value,
-        id: taskCount + 1,
-        isDone: false,
-      },
-    ];
-    setImportantTask(NewItemList);
-    setTaskCount((taskCount) => taskCount + 1);
-  };
-
-  return (
-    <div className={styles.container}>
-      <h1 className={styles.title}> todo's list </h1>
-      <InputItem onClickAdd={onClickAdd} />
-      <hr className={styles.line} />
-      <ItemList
-        todoItem={importantTask}
-        onClickDone={onClickDone}
-        onClickDelete={onClickDelete}
-      />
-      <hr className={styles.line} />
-      <Footer count={taskCount} />
+        <div className={styles.menu__content}></div>
+        <Route path="/" exact component={About} />
+        <Route path="/todo" component={Todo} />
+        <Route path="/contacts" component={Contacts} />
+      </div>
     </div>
-  );
-};
+  </Router>
+);
+
 export default App;
