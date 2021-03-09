@@ -9,33 +9,44 @@ export default class About extends React.Component {
   state = {
     isLoading: true,
     repoList: [],
+    error: null,
   };
 
   componentDidMount() {
     octokit.repos
       .listForUser({
-        username: "EPShepelev",
+        username: "EPShepelev111",
       })
       .then(({ data }) => {
-        console.log(data);
         this.setState({
           repoList: data,
           isLoading: false,
         });
+      })
+      .catch((e) => {
+        this.setState({ error: e });
       });
   }
 
   render() {
-    const { isLoading, repoList } = this.state;
+    const { isLoading, repoList, error } = this.state;
     return (
       <div className="about__container">
-        <div>{isLoading ? <CircularProgress /> : "Мои репозитории"}</div>
-        {!isLoading && (
-          <ol>
-            {repoList.map((repo) => (
-              <li key={repo.id}>{repo.name}</li>
-            ))}
-          </ol>
+        <div>
+          {isLoading && !error ? <CircularProgress /> : "Мои репозитории"}
+        </div>
+        {error ? (
+          <div>`Ошибка: {error.message}`</div>
+        ) : (
+          !isLoading && (
+            <ol>
+              {repoList.map((repo) => (
+                <li key={repo.id}>
+                  <a href={repo.html_url}>{repo.name}</a>
+                </li>
+              ))}
+            </ol>
+          )
         )}
       </div>
     );
