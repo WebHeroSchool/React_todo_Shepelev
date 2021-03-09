@@ -15,7 +15,7 @@ export default class About extends React.Component {
   componentDidMount() {
     octokit.repos
       .listForUser({
-        username: "EPShepelev111",
+        username: "EPShepelev",
       })
       .then(({ data }) => {
         this.setState({
